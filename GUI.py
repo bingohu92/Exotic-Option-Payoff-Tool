@@ -498,21 +498,21 @@ def compound_COC(STime=10000,K1=7.5,T1=2,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=
     plt.plot(Uprices,Payoffs,marker='o',linestyle='',color='b')
     plt.xlabel('Underlying price')
     plt.ylabel('Payoff')
-    plt.title('Payoff Diagram of Compound Option - Call on Call'+ '\n'+'Strike1=' + str(K)+'  Strike2=' + str(K1))
+    plt.title('Payoff Diagram of Compound Option - Call on Call'+ '\n'+'Strike1=' + str(K)+'  Strike2=' + str(K1) + '   Maturity1=' + str(T)+'  Maturity2=' + str(T1))
     plt.show()
 
 def compound_POC(STime=10000,K1=7.5,T1=2,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.001):
     Uprices = []
     Payoffs = []
     for i in range(0,STime):
-        s = Stock(S0,K,sigma,r,q,T1-T,dt)
+        s = Stock(S0,K,sigma,r,q,T,dt)
         s.simulation()
         Uprices.append(s.get_maturityPrice())
-        Payoffs.append(max(BlackScholes("P",s.get_maturityPrice(),K,r,sigma,T) - K1, 0))
+        Payoffs.append(max(K1-BlackScholes("C",s.get_maturityPrice(),K,r,sigma,T), 0))
     plt.plot(Uprices,Payoffs,marker='o',linestyle='',color='b')
     plt.xlabel('Underlying price')
     plt.ylabel('Payoff')
-    plt.title('Payoff Diagram of Compound Option - Put on Call'+ '\n'+ 'Strike1=' + str(K)+'  Strike2=' + str(K1))
+    plt.title('Payoff Diagram of Compound Option - Put on Call'+ '\n'+ 'Strike1=' + str(K)+'  Strike2=' + str(K1) + '   Maturity1=' + str(T)+'  Maturity2=' + str(T1))
     plt.show()
 
 def compound_COP(STime=10000,K1=7.5,T1=2,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.001):
@@ -522,11 +522,11 @@ def compound_COP(STime=10000,K1=7.5,T1=2,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=
         s = Stock(S0,K,sigma,r,q,T1-T,dt)
         s.simulation()
         Uprices.append(s.get_maturityPrice())
-        Payoffs.append(max(K1-BlackScholes("C",s.get_maturityPrice(),K,r,sigma,T), 0))
+        Payoffs.append(max(BlackScholes("P",s.get_maturityPrice(),K,r,sigma,T)-K1,0))
     plt.plot(Uprices,Payoffs,marker='o',linestyle='',color='b')
     plt.xlabel('Underlying price')
     plt.ylabel('Payoff')
-    plt.title('Payoff Diagram of Compound Option - Call on Put'+ '\n'+'Strike1=' + str(K)+'  Strike2=' + str(K1))
+    plt.title('Payoff Diagram of Compound Option - Call on Put'+ '\n'+'Strike1=' + str(K)+'  Strike2=' + str(K1) + '   Maturity1=' + str(T)+'  Maturity2=' + str(T1))
     plt.show()
 
 def compound_POP(STime=10000,K1=7.5,T1=2,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.001):
@@ -540,7 +540,7 @@ def compound_POP(STime=10000,K1=7.5,T1=2,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=
     plt.plot(Uprices,Payoffs,marker='o',linestyle='',color='b')
     plt.xlabel('Underlying price')
     plt.ylabel('Payoff')
-    plt.title('Payoff Diagram of Compound Option - Put on Put'+ '\n'+'Strike1=' + str(K)+'  Strike2=' + str(K1))
+    plt.title('Payoff Diagram of Compound Option - Put on Put'+ '\n'+'Strike1=' + str(K)+'  Strike2=' + str(K1) + '   Maturity1=' + str(T)+'  Maturity2=' + str(T1))
     plt.show()
 
 form = Tkinter.Tk()
@@ -773,9 +773,9 @@ def run():
     elif (choice == 5):
         compound_COC(int(STime_entry.get()),float(CStrike2_entry.get()),float(CMaturity2_entry.get()),float(S0_entry.get()),float(Strike_entry.get()),float(Volatility_entry.get()),float(InterestRate_entry.get()),float(Dividend_entry.get()),float(Maturity_entry.get()),dt=0.001)
     elif (choice == 6):
-        compound_POC(int(STime_entry.get()),float(CStrike2_entry.get()),float(CMaturity2_entry.get()),float(S0_entry.get()),float(Strike_entry.get()),float(Volatility_entry.get()),float(InterestRate_entry.get()),float(Dividend_entry.get()),float(Maturity_entry.get()),dt=0.001)
-    elif (choice == 7):
         compound_COP(int(STime_entry.get()),float(CStrike2_entry.get()),float(CMaturity2_entry.get()),float(S0_entry.get()),float(Strike_entry.get()),float(Volatility_entry.get()),float(InterestRate_entry.get()),float(Dividend_entry.get()),float(Maturity_entry.get()),dt=0.001)
+    elif (choice == 7):
+        compound_POC(int(STime_entry.get()),float(CStrike2_entry.get()),float(CMaturity2_entry.get()),float(S0_entry.get()),float(Strike_entry.get()),float(Volatility_entry.get()),float(InterestRate_entry.get()),float(Dividend_entry.get()),float(Maturity_entry.get()),dt=0.001)
     elif (choice == 8):
         compound_POP(int(STime_entry.get()),float(CStrike2_entry.get()),float(CMaturity2_entry.get()),float(S0_entry.get()),float(Strike_entry.get()),float(Volatility_entry.get()),float(InterestRate_entry.get()),float(Dividend_entry.get()),float(Maturity_entry.get()),dt=0.001)
     elif (choice == 9):
