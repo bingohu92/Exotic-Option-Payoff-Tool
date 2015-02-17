@@ -213,7 +213,7 @@ def asian_fixedStrike_call(STime=10000,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.
     plt.plot(Uprices,Payoffs,marker='o',linestyle='',color='b')
     plt.xlabel('Underlying price')
     plt.ylabel('Payoff')
-    plt.title('Payoff Diagram of Asian Fixed-strike Lookback Call'+'\n'+'Strike='+str(K))
+    plt.title('Payoff Diagram of Asian Fixed-strike Call'+'\n'+'Strike='+str(K))
     plt.show()
 
 def asian_fixedStrike_put(STime=10000,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.001):
@@ -227,7 +227,7 @@ def asian_fixedStrike_put(STime=10000,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.0
     plt.plot(Uprices,Payoffs,marker='o',linestyle='',color='b')
     plt.xlabel('Underlying price')
     plt.ylabel('Payoff')
-    plt.title('Payoff Diagram of Asian Fixed-strike Lookback Put'+'\n'+'Strike='+str(K))
+    plt.title('Payoff Diagram of Asian Fixed-strike Put'+'\n'+'Strike='+str(K))
     plt.show()
 
 def asian_floatingStrike_call(STime=10000,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.001):
@@ -241,7 +241,7 @@ def asian_floatingStrike_call(STime=10000,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt
     plt.plot(Uprices,Payoffs,marker='o',linestyle='',color='b')
     plt.xlabel('Underlying price')
     plt.ylabel('Payoff')
-    plt.title('Payoff Diagram of Asian Floating-strike Lookback Call'+'\n'+'Strike='+str(K))
+    plt.title('Payoff Diagram of Asian Floating-strike Call'+'\n'+'Strike='+str(K))
     plt.show()
 
 def asian_floatingStrike_put(STime=10000,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.001):
@@ -255,7 +255,7 @@ def asian_floatingStrike_put(STime=10000,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=
     plt.plot(Uprices,Payoffs,marker='o',linestyle='',color='b')
     plt.xlabel('Underlying price')
     plt.ylabel('Payoff')
-    plt.title('Payoff Diagram of Asian Floating-strike Lookback Put'+'\n'+'Strike='+str(K))
+    plt.title('Payoff Diagram of Asian Floating-strike Put'+'\n'+'Strike='+str(K))
     plt.show()
 
 def barrier_up_and_in_call(STime=10000,barrier=150,S0=100,K=100,sigma=0.20,r=0,q=0,T=1,dt=0.001):
